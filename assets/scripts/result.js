@@ -4,6 +4,7 @@ const removeSelector = ".js-remove";
 const statusSelector = ".js-status";
 
 const messages = [];
+let count = 0;
 
 const cardHtml = `
   <div class="card js-card" data-id="{{id}}">
@@ -70,10 +71,12 @@ const renderCards = () => {
 
 export const render = (message) => {
   messages.push({
-    id: messages.length + 1,
+    id: count,
     text: message,
     status: "open",
   });
+
+  count++;
 
   renderCards();
 };
